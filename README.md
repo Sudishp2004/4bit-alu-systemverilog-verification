@@ -6,4 +6,4 @@ Verilog, SystemVerilog, EDA Playground, QuestaSim
 
 Built to demonstrate practical understanding of RTL design and functional verification flow used in VLSI projects.
 
-
+![Waveform](block_diagram.png)
