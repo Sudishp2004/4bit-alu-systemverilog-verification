@@ -1,0 +1,31 @@
+// Code your design here
+// interface
+interface intf();
+  logic [3:0] A;
+  logic [3:0] B;
+  logic [2:0] opcode;
+  logic [3:0] result;
+  logic carry_out;
+  
+endinterface
+
+module ALU_4bit (
+  input  logic [3:0] A,        // 4-bit input A
+  input  logic [3:0] B,        // 4-bit input B
+  input  logic [2:0] opcode,   // 3-bit opcode to select operation
+  output logic [3:0] result,   // 4-bit result of the operation
+    output logic carry_out       // Carry-out for addition/subtraction
+);
+
+    always_comb begin
+      case (opcode)
+        3'b000: {carry_out, result} = A + B;  // Addition
+        3'b001: {carry_out, result} = A - B;  // Subtraction
+            3'b010: result = A & B;              // Bitwise AND
+            3'b011: result = A | B;              // Bitwise OR
+            3'b100: result = A ^ B;              // Bitwise XOR
+            default: result = 4'b0000;           // Default case
+        endcase
+    end
+
+endmodule

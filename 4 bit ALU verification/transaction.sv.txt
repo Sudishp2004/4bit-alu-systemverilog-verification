@@ -1,0 +1,17 @@
+class transaction;
+  rand logic [3:0] A;
+  rand logic [3:0] B;
+  rand logic [2:0] opcode;
+         
+  bit [3:0] result;
+  bit carry_out;
+//display function
+         function void display(string name);
+           $display("_______%s________",name);
+           $display("A=%0b,B=%0b,opcode=%0b,result=%0b,carry_out=%0b",A,B,opcode,result,
+                    carry_out);
+           $display("...................");
+           endfunction
+         endclass
+         
+           

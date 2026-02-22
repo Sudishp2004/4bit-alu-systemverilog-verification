@@ -1,0 +1,28 @@
+class scoreboard;
+  mailbox mon2scb;
+ 
+  
+  function new (mailbox mon2scb);
+    this.mon2scb=mon2scb;
+  endfunction
+  task main();
+    transaction trans;
+    repeat(3);
+    begin
+      mon2scb.get(trans);
+      trans.display("score board signals");
+      //reference module
+      if (((trans.A + trans.B) == trans.result) && 
+          ((trans.A - trans.B) == trans.result) && 
+          ((trans.A & trans.B) == trans.result) &&
+          ((trans.A | trans.B) == trans.result) && 
+            ((trans.A ^ trans.B) == trans.result))
+        $display("*******PASS********");
+      else
+        $display("*****FAIL******");
+      $display("**********transaction done**********");
+    end 
+  endtask
+endclass
+
+               
